@@ -1,28 +1,39 @@
 import React from 'react'
-// import { Link } from 'react-router-dom'
+
+import lineupSelector from '../lineupSelector'
+import Player from './Player'
 
 class Forwards extends React.Component { 
 
   constructor(props) {
     super(props);
+    this.state = {
+      forwards: '',
+    }
   }
 
- 
+  componentWillMount() {
+    this.getStartingForwards()
+  }
+
+  getStartingForwards() {
+    let team = this.props.team
+    let numOfStarters = this.props.numOfStarters
+
+    //get all the Forwardss and randomize them
+    let allForwards = lineupSelector.randomizePlayers(lineupSelector.getPlayersByPosition(team, "FW"))
+    let startingForwards = lineupSelector.selectStarters(allForwards, numOfStarters)
+
+    this.setState({
+      forwards: startingForwards
+    })
+  }
+
   render() {
-    //get the rank name from the match object, which was passed as an argument by the route
-    // let rankName = this.props.match.params.rank
-    // let rank = this.props.ranks[rankName]
-
     return (
-      <div>
-          <p>We're the Forwards!</p>
-        {/* <p>welcome to the jungle!</p>
-        <ul>
-          {rank.map((item, i) => <li key={i}><Link to={`/rank/${rankName}/${item.name}`}>{item.name}</Link></li>)}
-        </ul> */}
-      </div>
-
-
+        <div className="pitch-area" id="Forwards">
+        {this.state.forwards.map((midfielder, i) => <Player player={midfielder}  key={i}/>)}
+        </div>
     )
   }
 }

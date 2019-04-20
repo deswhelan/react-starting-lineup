@@ -1,20 +1,18 @@
 import React from 'react'
-// import { HashRouter as Router, Route} from 'react-router-dom'
 
-// GET DATA FORM LOCAL FILE
+// GET DATA FROM LOCAL FILE
 import team from '../../server/public/teamData.json'
-
-// GET REACT COMPONENTS
-import Goalkeeper from './Goalkeeper'
-import Defenders from './Defenders'
-import Midfielders from './Midfielders'
-import Forwards from './Forwards'
 
 // GET INFO FROM API
 // import { getHoroscopeInfo } from '../api'
 
 // GET INFO FROM DATABASE USING DB FUNCTIONS FILE
 // import { getHoroscopeDbInfo } from '../../server/db/db'
+
+import Goalkeeper from './Goalkeeper'
+import Defenders from './Defenders'
+import Midfielders from './Midfielders'
+import Forwards from './Forwards'
 
 class App extends React.Component {
   constructor(props) {
@@ -23,49 +21,23 @@ class App extends React.Component {
     this.state = {
       team: team["manchesterunited"],
       defendersNeeded: 4,
-      midfieldersNeeded: 4,
-      forwardsNeeded: 2,
+      midfieldersNeeded: 3,
+      forwardsNeeded: 3,
     }
 
-    // this.renderHoroscopeInfo = this.renderHoroscopeInfo.bind(this)
     this.handleClick = this.handleClick.bind(this)
-
   }
-
-  appWillMount() {
-    console.log("appWillMount")
-    // getHoroscopeInfo(this.renderHoroscopeInfo)
-    // console.log("Info returned from getHoroscopeInfo: ", getHoroscopeInfo(this.renderHoroscopeInfo)
-    // )
-  }
-
-  appDidMount() {
-    console.log("appDidMount")
-  }
-
-  // renderHoroscopeInfo(err, horoscopes, horoscopeText, horoscopeName) {
-  //   console.log("horoscope name: ", horoscopeName)
-  //   this.setState({
-  //     horoscopes: horoscopes.dailyhoroscope,
-  //     horoscopeText: horoscopeText.split('<')[0],
-  //     horoscopeName: horoscopeName,
-  //     // celebName: getHoroscopeDbInfo(horoscopeName)
-  //   })
-  // }
 
   handleClick(e) {
     console.log("executing handleClick")
     this.setState({
-      defenders: 4,
-      midfielders: 3,
-      forwards: 3,
+      defendersNeeded: 4,
+      midfieldersNeeded: 4,
+      forwardsNeeded: 2,
     })
-    // let horoscopeName = e.target.id
-    // getHoroscopeInfo(this.renderHoroscopeInfo, horoscopeName)
   }
 
   render() {
-    console.log('App rendering')
     return (
       <div>
         <a href="/">
@@ -85,16 +57,19 @@ class App extends React.Component {
           <Goalkeeper team={this.state.team}/>
           <Defenders team={this.state.team} numOfStarters={this.state.defendersNeeded}/>
           <Midfielders team={this.state.team} numOfStarters={this.state.midfieldersNeeded}/>
-          <Forwards />
+          <Forwards team={this.state.team} numOfStarters={this.state.forwardsNeeded}/>
         </div>
       </div>
     )
   }
 }
 
-
+export default App
 
 // EXAMPLE REACT ROUTER BEHAVIOUR
+
+// import { HashRouter as Router, Route} from 'react-router-dom'
+
 // const App = () => {
 //   return (
 //     <div>
@@ -115,5 +90,4 @@ class App extends React.Component {
 //   )
 // }
 
-export default App
 

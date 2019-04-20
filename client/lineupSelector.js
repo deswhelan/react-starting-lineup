@@ -22,7 +22,7 @@ function randomizePlayers(players) {
     return players
 }
 
-function selectPlayersByPosition (players, numberOfPlayersWanted) {
+function selectStarters (players, numberOfPlayersWanted) {
     return players.slice(0, numberOfPlayersWanted)
 }
 
@@ -37,5 +37,9 @@ function pickAStartingEleven (squad, def, mid, fw){
 }
 
 module.exports = {
+    getPlayersByPosition: getPlayersByPosition,
+    randomizePlayers: randomizePlayers,
+    selectStarters: selectStarters,
     pickAStartingEleven: pickAStartingEleven
+
 }

@@ -7,22 +7,30 @@ class Defenders extends React.Component {
     super(props);
   }
 
+  componentWillMount() {
+      console.log("defendersWillMount")
+  }
+
+  componentDidMount() {
+    console.log("defendersDidMount")
+  }
+
  
   render() {
     //get the rank name from the match object, which was passed as an argument by the route
     // let rankName = this.props.match.params.rank
     // let rank = this.props.ranks[rankName]
+    console.log("Defenders Rendering")
 
     return (
-      <div>
-          <p>We're the Defenders!</p>
-        {/* <p>welcome to the jungle!</p>
-        <ul>
-          {rank.map((item, i) => <li key={i}><Link to={`/rank/${rankName}/${item.name}`}>{item.name}</Link></li>)}
-        </ul> */}
-      </div>
-
-
+        <div className="pitch-area" id="defenders">
+        {/* {#each Defenders} */}
+        <div className="player">
+            <a className = "player-link"><img className="img-circle" src="/images/lindelof.png" alt=""/></a>
+            <p className="img-text">Lindelof</p>
+        </div>
+        {/* {/each} */}
+        </div>
     )
   }
 }

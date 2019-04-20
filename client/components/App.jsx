@@ -32,15 +32,15 @@ class App extends React.Component {
 
   }
 
-  componentWillMount() {
-    console.log("componentWillMount")
+  appWillMount() {
+    console.log("appWillMount")
     // getHoroscopeInfo(this.renderHoroscopeInfo)
     // console.log("Info returned from getHoroscopeInfo: ", getHoroscopeInfo(this.renderHoroscopeInfo)
     // )
   }
 
-  componentDidMount() {
-    console.log("componentDidMount")
+  appDidMount() {
+    console.log("appDidMount")
   }
 
   // renderHoroscopeInfo(err, horoscopes, horoscopeText, horoscopeName) {
@@ -65,8 +65,7 @@ class App extends React.Component {
   }
 
   render() {
-    console.log('rendering')
-    console.log(this.state.team)
+    console.log('App rendering')
     return (
       <div>
         <a href="/">
@@ -83,7 +82,7 @@ class App extends React.Component {
           <li>{this.state.forwards}</li>
         </ul>
         <div class="container">
-          <Goalkeeper />
+          <Goalkeeper team={this.state.team}/>
           <Defenders />
           <Midfielders />
           <Forwards />

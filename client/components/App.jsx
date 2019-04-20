@@ -84,7 +84,7 @@ class App extends React.Component {
         <div class="container">
           <Goalkeeper team={this.state.team}/>
           <Defenders team={this.state.team} numOfStarters={this.state.defendersNeeded}/>
-          <Midfielders />
+          <Midfielders team={this.state.team} numOfStarters={this.state.midfieldersNeeded}/>
           <Forwards />
         </div>
       </div>

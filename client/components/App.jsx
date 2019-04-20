@@ -5,7 +5,10 @@ import React from 'react'
 // import ranks from '../../data/ranks.js'
 
 // GET REACT COMPONENTS
-// import Nav from './Nav.jsx'
+import Goalkeeper from './Goalkeeper'
+import Defenders from './Defenders'
+import Midfielders from './Midfielders'
+import Forwards from './Forwards'
 
 // GET INFO FROM API
 // import { getHoroscopeInfo } from '../api'
@@ -61,13 +64,23 @@ class App extends React.Component {
     console.log('rendering')
     return (
       <div>
-        <h1>Starting Lineup</h1>
+        <a href="/">
+          <div class ="corners">
+            <div class="top-left-corner"></div>
+            <h1 class="title">Starting Lineup</h1>
+            <div class="top-right-corner"></div>
+          </div>
+        </a>
         <div onClick={this.handleClick} id="click-tester">Click Tester</div>
         <ul>
           <li>{this.state.defenders}</li>
           <li>{this.state.midfielders}</li>
           <li>{this.state.forwards}</li>
         </ul>
+        <Goalkeeper />
+        <Defenders />
+        <Midfielders />
+        <Forwards />
       </div>
     )
   }

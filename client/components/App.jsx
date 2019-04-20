@@ -25,7 +25,6 @@ class App extends React.Component {
       defenders: 4,
       midfielders: 4,
       forwards: 2,
-      clickTester: ''
     }
 
     // this.renderHoroscopeInfo = this.renderHoroscopeInfo.bind(this)
@@ -56,6 +55,11 @@ class App extends React.Component {
 
   handleClick(e) {
     console.log("executing handleClick")
+    this.setState({
+      defenders: 4,
+      midfielders: 3,
+      forwards: 3,
+    })
     // let horoscopeName = e.target.id
     // getHoroscopeInfo(this.renderHoroscopeInfo, horoscopeName)
   }

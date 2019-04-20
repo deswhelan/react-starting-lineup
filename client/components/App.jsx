@@ -2,7 +2,7 @@ import React from 'react'
 // import { HashRouter as Router, Route} from 'react-router-dom'
 
 // GET DATA FORM LOCAL FILE
-// import ranks from '../../data/ranks.js'
+import team from '../../server/public/teamData.json'
 
 // GET REACT COMPONENTS
 import Goalkeeper from './Goalkeeper'
@@ -21,7 +21,7 @@ class App extends React.Component {
     super(props)
 
     this.state = {
-      team: [],
+      team: team["manchesterunited"],
       defenders: 4,
       midfielders: 4,
       forwards: 2,
@@ -66,6 +66,7 @@ class App extends React.Component {
 
   render() {
     console.log('rendering')
+    console.log(this.state.team)
     return (
       <div>
         <a href="/">

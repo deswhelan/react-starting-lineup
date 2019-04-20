@@ -22,38 +22,90 @@ class App extends React.Component {
       team: team["manchesterunited"],
       defendersNeeded: 4,
       midfieldersNeeded: 3,
-      forwardsNeeded: 3,
+      forwardsNeeded: 3
     }
 
-    this.handleClick = this.handleClick.bind(this)
+    console.log("Initial state: ", this.state)
+
+    this.handleClick = this.handleClick.bind(this)  
+    this.handleSubmit = this.handleSubmit.bind(this)
+    this.updateState = this.updateState.bind(this)
+    this.renderNewFormation = this.renderNewFormation.bind(this)
   }
 
   handleClick(e) {
     console.log("executing handleClick")
+    let formation = e.target.id.split('')
+
     this.setState({
-      defendersNeeded: 4,
-      midfieldersNeeded: 4,
-      forwardsNeeded: 2,
+      defendersNeeded: parseInt(formation[0]),
+      midfieldersNeeded: parseInt(formation[1]),
+      forwardsNeeded: parseInt(formation[2])
     })
+    console.log(this.state)
+  }
+
+  renderNewFormation(formation) {
+    console.log("Rendering new formation: ", formation)
+    this.setState({
+      defendersNeeded: parseInt(formation[0]),
+      midfieldersNeeded: parseInt(formation[1]),
+      forwardsNeeded: parseInt(formation[2])
+    })
+    console.log(this.state)
+  }
+
+  updateState() {
+    console.log("changing state!")
+
+    this.setState({
+      defendersNeeded: 6,
+      midfieldersNeeded: 6,
+      forwardsNeeded: 6,
+    })  
+  }
+
+  handleSubmit() {
+    console.log("handling submit")
+    this.updateState()
   }
 
   render() {
     return (
       <div>
         <a href="/">
-          <div class ="corners">
-            <div class="top-left-corner"></div>
-            <h1 class="title">Starting Lineup</h1>
-            <div class="top-right-corner"></div>
+          <div className ="corners">
+            <div className="top-left-corner"></div>
+            <h1 className="title">Starting Lineup</h1>
+            <div className="top-right-corner"></div>
           </div>
         </a>
-        <div onClick={this.handleClick} id="click-tester">Click Tester</div>
-        <ul>
-          <li>{this.state.defenders}</li>
-          <li>{this.state.midfielders}</li>
-          <li>{this.state.forwards}</li>
-        </ul>
-        <div class="container">
+        <button onClick={this.handleClick} id="541">5-4-1</button>
+        <button onClick={this.handleClick} id="532">5-3-2</button>
+        <button onClick={this.handleClick} id="442">4-4-2</button>
+        <button onClick={this.handleClick} id="433">4-3-3</button>
+        <button onClick={this.handleClick} id="424">4-2-4</button>
+        <button onClick={this.handleClick} id="352">3-5-2</button>
+        <button onClick={this.handleClick} id="343">3-4-3</button>
+        {/* <form className="form" onSubmit={this.handleSubmit}>
+            <label for="def" className="form-item">
+                Defenders:
+                <input type="number" name="defenders"/>
+            </label>
+            
+            <label for="mid" className="form-item">
+                Midfielders:
+                <input type="number" name="midfielders"/>
+            </label>
+            
+            <label for="fwd" className="form-item">
+                Forwards:
+                <input type="number" name="forwards"/>
+            </label>
+            
+            <input type="submit" name="" value="Submit"/>
+        </form> */}
+        <div className="container">
           <Goalkeeper team={this.state.team}/>
           <Defenders team={this.state.team} numOfStarters={this.state.defendersNeeded}/>
           <Midfielders team={this.state.team} numOfStarters={this.state.midfieldersNeeded}/>

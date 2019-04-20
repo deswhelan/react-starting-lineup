@@ -2,7 +2,7 @@ import React from 'react'
 // import { Link } from 'react-router-dom'
 
 import lineupSelector from '../lineupSelector'
-import Midfielder from './Midfielder'
+import Player from './Player'
 
 class Midfielders extends React.Component { 
 
@@ -38,7 +38,7 @@ class Midfielders extends React.Component {
   render() {
     return (
         <div className="pitch-area" id="midfielders">
-        {this.state.midfielders.map((midfielder, i) => <Midfielder midfielder={midfielder}  key={i}/>)}
+        {this.state.midfielders.map((midfielder, i) => <Player player={midfielder}  key={i}/>)}
         </div>
     )
   }

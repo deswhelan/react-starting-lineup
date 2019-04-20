@@ -1,7 +1,7 @@
 import React from 'react'
 
 import lineupSelector from '../lineupSelector'
-import Defender from './Defender'
+import Player from './Player'
 
 class Defenders extends React.Component { 
 
@@ -36,7 +36,7 @@ class Defenders extends React.Component {
   render() {
     return (
         <div className="pitch-area" id="defenders">
-        {this.state.defenders.map((defender, i) => <Defender defender={defender}  key={i}/>)}
+        {this.state.defenders.map((defender, i) => <Player player={defender}  key={i}/>)}
         </div>
     )
   }

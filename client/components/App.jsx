@@ -22,9 +22,9 @@ class App extends React.Component {
 
     this.state = {
       team: team["manchesterunited"],
-      defenders: 4,
-      midfielders: 4,
-      forwards: 2,
+      defendersNeeded: 4,
+      midfieldersNeeded: 4,
+      forwardsNeeded: 2,
     }
 
     // this.renderHoroscopeInfo = this.renderHoroscopeInfo.bind(this)
@@ -83,7 +83,7 @@ class App extends React.Component {
         </ul>
         <div class="container">
           <Goalkeeper team={this.state.team}/>
-          <Defenders />
+          <Defenders team={this.state.team} numOfStarters={this.state.defendersNeeded}/>
           <Midfielders />
           <Forwards />
         </div>

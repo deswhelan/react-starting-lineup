@@ -1,5 +1,4 @@
 import React from 'react'
-// import { Link } from 'react-router-dom'
 
 import lineupSelector from '../lineupSelector'
 
@@ -13,15 +12,10 @@ class Goalkeeper extends React.Component {
   }
 
   componentWillMount() {
-    console.log("goalkeeperWillMount")
-    this.getAGoalKeeper()
+    this.getStartingGoalKeeper()
   }
 
-  componentDidMount() {
-    console.log("goalkeeperDidMount")
-  }
-
-  getAGoalKeeper() {
+  getStartingGoalKeeper() {
     let team = this.props.team
 
     //get all the goalkeepers and randomize them
@@ -34,24 +28,14 @@ class Goalkeeper extends React.Component {
     })
   }
 
- 
   render() {
-    //get the rank name from the match object, which was passed as an argument by the route
-    // let rankName = this.props.match.params.rank
-    // let rank = this.props.ranks[rankName]
-    console.log("Goalkeeper Rendering")
-    
-    console.log("Startin goalie: ", this.state.goalkeeper["surname"])
-
     return (
-        <div className="pitch-area" id="goalkeepers">
-        {/* {#each Goalkeeper} */}
+      <div className="pitch-area" id="goalkeepers">
         <div className="player">
-            <a className = "player-link"><img className="img-circle" src={this.state.goalkeeper["picture"]} alt=""/></a>
-            <p className="img-text">{this.state.goalkeeper["surname"]}</p>
+          <a className = "player-link"><img className="img-circle" src={this.state.goalkeeper["picture"]} alt=""/></a>
+          <p className="img-text">{this.state.goalkeeper["surname"]}</p>
         </div>
-        {/* {/each} */}
-        </div>
+      </div>
     )
   }
 }

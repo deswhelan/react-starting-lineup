@@ -14,15 +14,14 @@ class Goalkeeper extends React.Component {
     // let rank = this.props.ranks[rankName]
 
     return (
-      <div>
-          <p>I'm the goalkeeper!</p>
-        {/* <p>welcome to the jungle!</p>
-        <ul>
-          {rank.map((item, i) => <li key={i}><Link to={`/rank/${rankName}/${item.name}`}>{item.name}</Link></li>)}
-        </ul> */}
-      </div>
-
-
+        <div className="pitch-area" id="goalkeepers">
+        {/* {#each Goalkeeper} */}
+        <div className="player">
+            <a className = "player-link"><img className="img-circle" src="/images/degea.png" alt=""/></a>
+            <p className="img-text">Surname</p>
+        </div>
+        {/* {/each} */}
+        </div>
     )
   }
 }

@@ -81,10 +81,12 @@ class App extends React.Component {
           <li>{this.state.midfielders}</li>
           <li>{this.state.forwards}</li>
         </ul>
-        <Goalkeeper />
-        <Defenders />
-        <Midfielders />
-        <Forwards />
+        <div class="container">
+          <Goalkeeper />
+          <Defenders />
+          <Midfielders />
+          <Forwards />
+        </div>
       </div>
     )
   }

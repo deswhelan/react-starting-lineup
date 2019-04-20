@@ -32,7 +32,11 @@ class Forwards extends React.Component {
   render() {
     return (
         <div className="pitch-area" id="Forwards">
-        {this.state.forwards.map((midfielder, i) => <Player player={midfielder}  key={i}/>)}
+        {this.state.forwards.map((forward, i) => <Player player={forward}  key={i}/>)}
+        <div class="corners">
+            <div class="bottom-left-corner"></div>
+            <div class="bottom-right-corner"></div>
+        </div>
         </div>
     )
   }

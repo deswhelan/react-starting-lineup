@@ -63,7 +63,6 @@ class App extends React.Component {
 
     //export this functionality to H2H component once rendering is occuring correctly
     let fixtures = this.state.results
-    console.log("fixtures: ", fixtures)
 
     fixtures.map(fixture => {
       console.log(fixture.league_name + ":", fixture.match_hometeam_name, fixture.match_hometeam_score, " - ", fixture.match_awayteam_score, fixture.match_awayteam_name)
@@ -115,7 +114,23 @@ class App extends React.Component {
         <button onClick={this.handleFormationClick} id="343">3-4-3</button>
         <br></br>
         <button onClick={this.handleResultsClick} id="Arsenal">Arsenal</button>
+        <button onClick={this.handleResultsClick} id="AFC Bournemouth">AFC Bournemouth</button>
+        <button onClick={this.handleResultsClick} id="Brighton &amp; Hove Albion">Brighton and Hove Albion</button>
+        <button onClick={this.handleResultsClick} id="Burnley">Burnley</button>
+        <button onClick={this.handleResultsClick} id="Cardiff City">Cardiff City</button>
+        <button onClick={this.handleResultsClick} id="Chelsea">Chelsea</button>
+        <button onClick={this.handleResultsClick} id="Crystal Palace">Crystal Palace</button>
+        <button onClick={this.handleResultsClick} id="Everton">Everton</button>
+        <button onClick={this.handleResultsClick} id="Fulham">Fulham</button>
+        <button onClick={this.handleResultsClick} id="Huddersfield Town">Huddersfield Town</button>
+        <button onClick={this.handleResultsClick} id="Leicester City">Leicester City</button>
+        <button onClick={this.handleResultsClick} id="Liverpool">Liverpool</button>
         <button onClick={this.handleResultsClick} id="Manchester City">Manchester City</button>
+        <button onClick={this.handleResultsClick} id="Newcastle United">Newcastle United</button>
+        <button onClick={this.handleResultsClick} id="Southampton">Southampton</button>
+        <button onClick={this.handleResultsClick} id="Tottenham Hotspur">Tottenham Hotspur</button>
+        <button onClick={this.handleResultsClick} id="West Ham United">West Ham United</button>
+        <button onClick={this.handleResultsClick} id="Wolverhampton Wanderers">Wolverhampton Wanderers</button>
         <div className="container">
           <Goalkeeper team={this.state.team}/>
           <Defenders team={this.state.team} numOfStarters={this.state.defendersNeeded}/>

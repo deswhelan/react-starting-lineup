@@ -12,11 +12,9 @@ class HeadToHead extends React.Component {
         this.setState({
             results: this.props.results
         })
-        console.log("H2H componenent results: ", this.state.results)
     }
 
     render () {
-        console.log("Rendering these results: ", this.state.results)
         return (
             <div className="HeadToHead">
                 {/* <p>{this.state.results[0].match_hometeam_name}</p> */}

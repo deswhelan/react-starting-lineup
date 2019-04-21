@@ -23,25 +23,22 @@ class App extends React.Component {
       team: team["manchesterunited"],
       defendersNeeded: 4,
       midfieldersNeeded: 3,
-      forwardsNeeded: 3
+      forwardsNeeded: 3,
+      results: ''
     }
 
     console.log("Initial state: ", this.state)
 
     this.handleFormationClick = this.handleFormationClick.bind(this)  
+    this.handleResultsClick = this.handleResultsClick.bind(this)  
+    this.renderResults = this.renderResults.bind(this)
     // this.handleSubmit = this.handleSubmit.bind(this)
     // this.updateState = this.updateState.bind(this)
     // this.renderNewFormation = this.renderNewFormation.bind(this)
   }
 
-  // shouldComponentUpdate(){
-  //   return true
-  // }
-
   handleFormationClick(e) {
     console.log("executing handleFormationClick")
-
-    getHeadToHeadResults()
 
     let formation = e.target.id.split('')
 
@@ -52,12 +49,26 @@ class App extends React.Component {
     })
     console.log(this.state)
     this.render()
-    // this.shouldComponentUpdate()
   }
 
   handleResultsClick(e) {
     let opponent = e.target.id
-    getHeadToHeadResults(opponent)
+    getHeadToHeadResults(opponent, this.renderResults)
+  }
+
+  renderResults(results) {
+    this.setState({
+      results: results
+    })
+
+    //export this functionality to H2H component once rendering is occuring correctly
+    let fixtures = this.state.results
+    console.log("fixtures: ", fixtures)
+
+    fixtures.map(fixture => {
+      console.log(fixture.league_name + ":", fixture.match_hometeam_name, fixture.match_hometeam_score, " - ", fixture.match_awayteam_score, fixture.match_awayteam_name)
+    })
+
   }
 
   // renderNewFormation(formation) {
@@ -105,30 +116,12 @@ class App extends React.Component {
         <br></br>
         <button onClick={this.handleResultsClick} id="Arsenal">Arsenal</button>
         <button onClick={this.handleResultsClick} id="Manchester City">Manchester City</button>
-        {/* <form className="form" onSubmit={this.handleSubmit}>
-            <label for="def" className="form-item">
-                Defenders:
-                <input type="number" name="defenders"/>
-            </label>
-            
-            <label for="mid" className="form-item">
-                Midfielders:
-                <input type="number" name="midfielders"/>
-            </label>
-            
-            <label for="fwd" className="form-item">
-                Forwards:
-                <input type="number" name="forwards"/>
-            </label>
-            
-            <input type="submit" name="" value="Submit"/>
-        </form> */}
         <div className="container">
           <Goalkeeper team={this.state.team}/>
           <Defenders team={this.state.team} numOfStarters={this.state.defendersNeeded}/>
           <Midfielders team={this.state.team} numOfStarters={this.state.midfieldersNeeded}/>
           <Forwards team={this.state.team} numOfStarters={this.state.forwardsNeeded}/>
-          <HeadToHead />
+          <HeadToHead results={this.state.results}/>
         </div>
       </div>
     )
@@ -136,29 +129,5 @@ class App extends React.Component {
 }
 
 export default App
-
-// EXAMPLE REACT ROUTER BEHAVIOUR
-
-// import { HashRouter as Router, Route} from 'react-router-dom'
-
-// const App = () => {
-//   return (
-//     <div>
-//       <h1>Attenborough in da house!</h1>
-//       <div className="container">
-//         <Router>
-//           <div className="content">
-//             <Route path='/' component={() => <Nav ranks={ranks} />} />
-//             <Route exact path='/' component={Home} />
-//             {/* pass through match as an argument to our compenent in our route*/}
-//             <Route path='/list/:rank' component={({match}) => <Classifications ranks={ranks} match={match} />} />
-//             <Route path='/rank/:rank/:name' component={({match}) => <Classification ranks={ranks} match={match} />} />
-//           </div>
-//         </Router>
-//       </div>
-//     </div>
-
-//   )
-// }
 
 

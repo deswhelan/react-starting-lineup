@@ -13,6 +13,7 @@ import Goalkeeper from './Goalkeeper'
 import Defenders from './Defenders'
 import Midfielders from './Midfielders'
 import Forwards from './Forwards'
+import HeadToHead from './HeadToHead.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -127,6 +128,7 @@ class App extends React.Component {
           <Defenders team={this.state.team} numOfStarters={this.state.defendersNeeded}/>
           <Midfielders team={this.state.team} numOfStarters={this.state.midfieldersNeeded}/>
           <Forwards team={this.state.team} numOfStarters={this.state.forwardsNeeded}/>
+          <HeadToHead />
         </div>
       </div>
     )

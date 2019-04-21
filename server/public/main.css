@@ -48,7 +48,7 @@ body {
     float: left;
     border-color: white;
     border-style: solid;
-    border-width: 0.6em;
+    border-width: 0.3em;
     border-bottom: none;
     border-left: none
 }
@@ -62,7 +62,7 @@ body {
     float: right;
     border-color: white;
     border-style: solid;
-    border-width: 0.6em;
+    border-width: 0.3em;
     border-bottom: none;
     border-right: none
 }

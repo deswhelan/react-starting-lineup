@@ -63,9 +63,9 @@ class App extends React.Component {
 
     //export this functionality to H2H component once rendering is occuring correctly
     let fixtures = this.state.results
-
+    console.log(fixtures)
     fixtures.map(fixture => {
-      console.log(fixture.league_name + ":", fixture.match_hometeam_name, fixture.match_hometeam_score, " - ", fixture.match_awayteam_score, fixture.match_awayteam_name)
+      console.log(fixture.league_name + ":", fixture.match_hometeam_name, fixture.match_hometeam_score, " - ", fixture.match_awayteam_score, fixture.match_awayteam_name, "(" + fixture.match_date + ")")
     })
 
   }

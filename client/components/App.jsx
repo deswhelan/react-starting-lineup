@@ -27,7 +27,7 @@ class App extends React.Component {
 
     console.log("Initial state: ", this.state)
 
-    this.handleClick = this.handleClick.bind(this)  
+    this.handleFormationClick = this.handleFormationClick.bind(this)  
     // this.handleSubmit = this.handleSubmit.bind(this)
     // this.updateState = this.updateState.bind(this)
     // this.renderNewFormation = this.renderNewFormation.bind(this)
@@ -37,8 +37,8 @@ class App extends React.Component {
   //   return true
   // }
 
-  handleClick(e) {
-    console.log("executing handleClick")
+  handleFormationClick(e) {
+    console.log("executing handleFormationClick")
 
     getHeadToHeadResults()
 
@@ -52,6 +52,11 @@ class App extends React.Component {
     console.log(this.state)
     this.render()
     // this.shouldComponentUpdate()
+  }
+
+  handleResultsClick(e) {
+    let opponent = e.target.id
+    getHeadToHeadResults(opponent)
   }
 
   // renderNewFormation(formation) {
@@ -89,13 +94,16 @@ class App extends React.Component {
             <div className="top-right-corner"></div>
           </div>
         </a>
-        <button onClick={this.handleClick} id="541">5-4-1</button>
-        <button onClick={this.handleClick} id="532">5-3-2</button>
-        <button onClick={this.handleClick} id="442">4-4-2</button>
-        <button onClick={this.handleClick} id="433">4-3-3</button>
-        <button onClick={this.handleClick} id="424">4-2-4</button>
-        <button onClick={this.handleClick} id="352">3-5-2</button>
-        <button onClick={this.handleClick} id="343">3-4-3</button>
+        <button onClick={this.handleFormationClick} id="541">5-4-1</button>
+        <button onClick={this.handleFormationClick} id="532">5-3-2</button>
+        <button onClick={this.handleFormationClick} id="442">4-4-2</button>
+        <button onClick={this.handleFormationClick} id="433">4-3-3</button>
+        <button onClick={this.handleFormationClick} id="424">4-2-4</button>
+        <button onClick={this.handleFormationClick} id="352">3-5-2</button>
+        <button onClick={this.handleFormationClick} id="343">3-4-3</button>
+        <br></br>
+        <button onClick={this.handleResultsClick} id="Arsenal">Arsenal</button>
+        <button onClick={this.handleResultsClick} id="Manchester City">Manchester City</button>
         {/* <form className="form" onSubmit={this.handleSubmit}>
             <label for="def" className="form-item">
                 Defenders:

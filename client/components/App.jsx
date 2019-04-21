@@ -4,7 +4,7 @@ import React from 'react'
 import team from '../../server/public/teamData.json'
 
 // GET INFO FROM API
-// import { getHoroscopeInfo } from '../api'
+import { getHeadToHeadResults } from '../api'
 
 // GET INFO FROM DATABASE USING DB FUNCTIONS FILE
 // import { getHoroscopeDbInfo } from '../../server/db/db'
@@ -28,13 +28,20 @@ class App extends React.Component {
     console.log("Initial state: ", this.state)
 
     this.handleClick = this.handleClick.bind(this)  
-    this.handleSubmit = this.handleSubmit.bind(this)
-    this.updateState = this.updateState.bind(this)
-    this.renderNewFormation = this.renderNewFormation.bind(this)
+    // this.handleSubmit = this.handleSubmit.bind(this)
+    // this.updateState = this.updateState.bind(this)
+    // this.renderNewFormation = this.renderNewFormation.bind(this)
   }
+
+  // shouldComponentUpdate(){
+  //   return true
+  // }
 
   handleClick(e) {
     console.log("executing handleClick")
+
+    getHeadToHeadResults()
+
     let formation = e.target.id.split('')
 
     this.setState({
@@ -43,32 +50,34 @@ class App extends React.Component {
       forwardsNeeded: parseInt(formation[2])
     })
     console.log(this.state)
+    this.render()
+    // this.shouldComponentUpdate()
   }
 
-  renderNewFormation(formation) {
-    console.log("Rendering new formation: ", formation)
-    this.setState({
-      defendersNeeded: parseInt(formation[0]),
-      midfieldersNeeded: parseInt(formation[1]),
-      forwardsNeeded: parseInt(formation[2])
-    })
-    console.log(this.state)
-  }
+  // renderNewFormation(formation) {
+  //   console.log("Rendering new formation: ", formation)
+  //   this.setState({
+  //     defendersNeeded: parseInt(formation[0]),
+  //     midfieldersNeeded: parseInt(formation[1]),
+  //     forwardsNeeded: parseInt(formation[2])
+  //   })
+  //   console.log(this.state)
+  // }
 
-  updateState() {
-    console.log("changing state!")
+  // updateState() {
+  //   console.log("changing state!")
 
-    this.setState({
-      defendersNeeded: 6,
-      midfieldersNeeded: 6,
-      forwardsNeeded: 6,
-    })  
-  }
+  //   this.setState({
+  //     defendersNeeded: 6,
+  //     midfieldersNeeded: 6,
+  //     forwardsNeeded: 6,
+  //   })  
+  // }
 
-  handleSubmit() {
-    console.log("handling submit")
-    this.updateState()
-  }
+  // handleSubmit() {
+  //   console.log("handling submit")
+  //   this.updateState()
+  // }
 
   render() {
     return (

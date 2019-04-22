@@ -8,7 +8,6 @@ export function getRecentResults(callback) {
     .get(Url1 + "Arsenal" + Url2)
     .end((err, res) => {
         let results = res.body.firstTeam_lastResults
-        console.log(res.body)
         callback(results)
     })
 }

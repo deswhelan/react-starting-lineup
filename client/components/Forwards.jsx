@@ -27,10 +27,14 @@ class Forwards extends React.Component {
 //   }
 
     render() {
+
         if(this.props.forwards){
             return (
                 <div className="pitch-area" id="Forwards">
-                    {this.props.forwards.map((forward, i) => <Player player={forward}  key={i}/>)}
+                    {this.props.forwards.map((forward, i) => {
+                        console.log(forward)
+                        return <Player player={forward}  key={i}/>
+                        })}
                 </div>
         )} else {
             return <div></div>

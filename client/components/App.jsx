@@ -38,7 +38,6 @@ class App extends React.Component {
   }
 
   handleFormationClick(e) {
-    console.log("executing handleFormationClick")
 
     let formation = e.target.id.split('')
 
@@ -47,7 +46,6 @@ class App extends React.Component {
       midfieldersNeeded: parseInt(formation[1]),
       forwardsNeeded: parseInt(formation[2])
     })
-    console.log(this.state)
     this.render()
   }
 
@@ -55,6 +53,8 @@ class App extends React.Component {
     let opponent = e.target.id
     getHeadToHeadResults(opponent, this.renderResults)
   }
+
+
 
   renderResults(results) {
     this.setState({

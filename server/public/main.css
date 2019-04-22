@@ -88,7 +88,15 @@ ul {
     text-align:center;
     align-items: center;
     font-size: 0.5em
-  }
+}
+
+.head-to-head {
+    font-size: 0.5em
+}
+
+.results-header {
+    text-decoration: underline
+}
 
 #managers {
     float: left;

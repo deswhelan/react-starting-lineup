@@ -1,17 +1,17 @@
 import React from 'react'
 
-class HeadToHead extends React.Component {
+class Results extends React.Component {
     constructor(props) {
         super(props)
     }
 
     render () {
-        let results = this.props.h2hResults
+        let results = this.props.recentResults
 
         if(results){
             return (
-                <div className="head-to-head">
-                    <h3>Head to Head vs. OPPONENT</h3>
+                <div className="recent-results">
+                    <h3>Recent Results</h3>
                     <ul>
                         {results.map((result, i) => {return  <li key={i}>
                             <div className="results-header">
@@ -30,4 +30,4 @@ class HeadToHead extends React.Component {
     }
 }   
 
-export default HeadToHead
+export default Results

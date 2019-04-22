@@ -5,6 +5,7 @@ import team from '../../server/public/teamData.json'
 
 // GET INFO FROM API
 import { getHeadToHeadResults } from '../api'
+import { getRecentResults} from '../api'
 
 // Get functions
 import {getStartingEleven} from '../lineupSelector'
@@ -14,6 +15,7 @@ import Goalkeeper from './Goalkeeper'
 import Defenders from './Defenders'
 import Midfielders from './Midfielders'
 import Forwards from './Forwards'
+import RecentResults from './RecentResults'
 import HeadToHead from './HeadToHead.jsx';
 
 class App extends React.Component {
@@ -24,25 +26,30 @@ class App extends React.Component {
 
     this.state = {
       team: team["manchesterunited"],
-      results: null,
       goalkeeper: null,
       defenders: null,
       midfielders: null,
-      forwards: null
+      forwards: null,
+      recentResults: null,
+      headToHead: null
     }
 
-    this.handleFormationClick = this.handleFormationClick.bind(this)  
-    this.handleResultsClick = this.handleResultsClick.bind(this)  
-    this.renderResults = this.renderResults.bind(this)
+    this.handleFormationClick = this.handleFormationClick.bind(this) 
     this.renderFormation = this.renderFormation.bind(this)
+
+    this.handleRecentResultsClick = this.handleRecentResultsClick.bind(this)
+    this.renderRecentResults = this.renderRecentResults.bind(this)
+    
+    this.handleHeadToHeadClick = this.handleHeadToHeadClick.bind(this)  
+    this.renderHeadToHead = this.renderHeadToHead.bind(this)
   }
 
-  handleFormationClick(e) {
+  handleFormationClick (e) {
     let formation = e.target.id.split('')
     getStartingEleven(this.state.team, formation, this.renderFormation)
   }
 
-  renderFormation(gk, df, mf, fw) {
+  renderFormation (gk, df, mf, fw) {
     this.setState({
       goalkeeper: gk,
       defenders: df,
@@ -51,15 +58,24 @@ class App extends React.Component {
     })
   }
 
-  handleResultsClick(e) {
-    let opponent = e.target.id
-    getHeadToHeadResults(opponent, this.renderResults)
+  handleRecentResultsClick () {
+    getRecentResults(this.renderRecentResults)
   }
 
-
-  renderResults(results) {
+  renderRecentResults (recentResults) {
     this.setState({
-      results: results
+      recentResults: recentResults
+    })
+  }
+
+  handleHeadToHeadClick (e) {
+    let opponent = e.target.id
+    getHeadToHeadResults(opponent, this.renderHeadToHead)
+  }
+
+  renderHeadToHead (h2hResults) {
+    this.setState({
+      headToHead: h2hResults
     })
   }
 
@@ -91,26 +107,29 @@ class App extends React.Component {
           <Midfielders  midfielders={this.state.midfielders} team={this.state.team}/>
           <Forwards forwards={this.state.forwards} team={this.state.team}/>
 
-          <button onClick={this.handleResultsClick} id="Arsenal">Arsenal</button>
-          <button onClick={this.handleResultsClick} id="AFC Bournemouth">AFC Bournemouth</button>
-          <button onClick={this.handleResultsClick} id="Brighton &amp; Hove Albion">Brighton and Hove Albion</button>
-          <button onClick={this.handleResultsClick} id="Burnley">Burnley</button>
-          <button onClick={this.handleResultsClick} id="Cardiff City">Cardiff City</button>
-          <button onClick={this.handleResultsClick} id="Chelsea">Chelsea</button>
-          <button onClick={this.handleResultsClick} id="Crystal Palace">Crystal Palace</button>
-          <button onClick={this.handleResultsClick} id="Everton">Everton</button>
-          <button onClick={this.handleResultsClick} id="Fulham">Fulham</button>
-          <button onClick={this.handleResultsClick} id="Huddersfield Town">Huddersfield Town</button>
-          <button onClick={this.handleResultsClick} id="Leicester City">Leicester City</button>
-          <button onClick={this.handleResultsClick} id="Liverpool">Liverpool</button>
-          <button onClick={this.handleResultsClick} id="Manchester City">Manchester City</button>
-          <button onClick={this.handleResultsClick} id="Newcastle United">Newcastle United</button>
-          <button onClick={this.handleResultsClick} id="Southampton">Southampton</button>
-          <button onClick={this.handleResultsClick} id="Tottenham Hotspur">Tottenham Hotspur</button>
-          <button onClick={this.handleResultsClick} id="West Ham United">West Ham United</button>
-          <button onClick={this.handleResultsClick} id="Wolverhampton Wanderers">Wolverhampton Wanderers</button>
+          <button onClick={this.handleRecentResultsClick}>Recent Results</button>
+          <RecentResults recentResults={this.state.recentResults}/>
 
-          <HeadToHead results={this.state.results}/>
+          <button onClick={this.handleHeadToHeadClick} id="Arsenal">Arsenal</button>
+          <button onClick={this.handleHeadToHeadClick} id="AFC Bournemouth">AFC Bournemouth</button>
+          <button onClick={this.handleHeadToHeadClick} id="Brighton &amp; Hove Albion">Brighton and Hove Albion</button>
+          <button onClick={this.handleHeadToHeadClick} id="Burnley">Burnley</button>
+          <button onClick={this.handleHeadToHeadClick} id="Cardiff City">Cardiff City</button>
+          <button onClick={this.handleHeadToHeadClick} id="Chelsea">Chelsea</button>
+          <button onClick={this.handleHeadToHeadClick} id="Crystal Palace">Crystal Palace</button>
+          <button onClick={this.handleHeadToHeadClick} id="Everton">Everton</button>
+          <button onClick={this.handleHeadToHeadClick} id="Fulham">Fulham</button>
+          <button onClick={this.handleHeadToHeadClick} id="Huddersfield Town">Huddersfield Town</button>
+          <button onClick={this.handleHeadToHeadClick} id="Leicester City">Leicester City</button>
+          <button onClick={this.handleHeadToHeadClick} id="Liverpool">Liverpool</button>
+          <button onClick={this.handleHeadToHeadClick} id="Manchester City">Manchester City</button>
+          <button onClick={this.handleHeadToHeadClick} id="Newcastle United">Newcastle United</button>
+          <button onClick={this.handleHeadToHeadClick} id="Southampton">Southampton</button>
+          <button onClick={this.handleHeadToHeadClick} id="Tottenham Hotspur">Tottenham Hotspur</button>
+          <button onClick={this.handleHeadToHeadClick} id="West Ham United">West Ham United</button>
+          <button onClick={this.handleHeadToHeadClick} id="Wolverhampton Wanderers">Wolverhampton Wanderers</button>
+
+          <HeadToHead h2hResults={this.state.headToHead}/>
         </div>
       </div>
     )

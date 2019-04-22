@@ -47,31 +47,32 @@ function getStartingEleven (team, newFormationArr, callback) {
     let mfNeeded = parseInt(newFormationArr[1])
     let fwNeeded = parseInt(newFormationArr[2])
 
+    let gk = selectPlayersByPosition(randomizePlayers(getPlayersByPosition(team, "GK")) , 1)
     let df = selectPlayersByPosition(randomizePlayers(getPlayersByPosition(team, "DF")) , dfNeeded)
     let mf = selectPlayersByPosition(randomizePlayers(getPlayersByPosition(team, "MF")) , mfNeeded)
     let fw = selectPlayersByPosition(randomizePlayers(getPlayersByPosition(team, "FW")) , fwNeeded)
 
     console.log(team)
-    callback(df, mf, fw)
+    callback(gk, df, mf, fw)
 }
 
-function getNewFormation (newFormationArr, callback) {
+// function getNewFormation (newFormationArr, callback) {
     
-    let df = parseInt(newFormationArr[0])
-    let mf = parseInt(newFormationArr[1])
-    let fw = parseInt(newFormationArr[2])
+//     let df = parseInt(newFormationArr[0])
+//     let mf = parseInt(newFormationArr[1])
+//     let fw = parseInt(newFormationArr[2])
 
-    console.log("Getting new formation: ", df, mf, fw)
-    console.log(team)
-    callback(df, mf, fw)
-}
+//     console.log("Getting new formation: ", df, mf, fw)
+//     console.log(team)
+//     callback(df, mf, fw)
+// }
 
 module.exports = {
     getPlayersByPosition: getPlayersByPosition,
     randomizePlayers: randomizePlayers,
     selectStarters: selectStarters,
     pickAStartingEleven: pickAStartingEleven,
-    getNewFormation,
+    // getNewFormation,
     getStartingEleven
 
 }

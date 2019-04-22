@@ -25,6 +25,7 @@ class App extends React.Component {
     this.state = {
       team: team["manchesterunited"],
       results: null,
+      goalkeeper: null,
       defenders: null,
       midfielders: null,
       forwards: null
@@ -41,8 +42,9 @@ class App extends React.Component {
     getStartingEleven(this.state.team, formation, this.renderFormation)
   }
 
-  renderFormation(df, mf, fw) {
+  renderFormation(gk, df, mf, fw) {
     this.setState({
+      goalkeeper: gk,
       defenders: df,
       midfielders: mf,
       forwards: fw
@@ -72,19 +74,22 @@ class App extends React.Component {
           </div>
         </a>
         <div className="container">
-          <Goalkeeper team={this.state.team}/>
+
+          <div className="formation-select">
+          <p>Select formation</p>
+            <button onClick={this.handleFormationClick} id="541">5-4-1</button>
+            <button onClick={this.handleFormationClick} id="532">5-3-2</button>
+            <button onClick={this.handleFormationClick} id="442">4-4-2</button>
+            <button onClick={this.handleFormationClick} id="433">4-3-3</button>
+            <button onClick={this.handleFormationClick} id="424">4-2-4</button>
+            <button onClick={this.handleFormationClick} id="352">3-5-2</button>
+            <button onClick={this.handleFormationClick} id="343">3-4-3</button>
+          </div>
+
+          <Goalkeeper goalkeeper={this.state.goalkeeper} team={this.state.team}/>
           <Defenders defenders={this.state.defenders} team={this.state.team}/>
           <Midfielders  midfielders={this.state.midfielders} team={this.state.team}/>
           <Forwards forwards={this.state.forwards} team={this.state.team}/>
-
-          <button onClick={this.handleFormationClick} id="541">5-4-1</button>
-          <button onClick={this.handleFormationClick} id="532">5-3-2</button>
-          <button onClick={this.handleFormationClick} id="442">4-4-2</button>
-          <button onClick={this.handleFormationClick} id="433">4-3-3</button>
-          <button onClick={this.handleFormationClick} id="424">4-2-4</button>
-          <button onClick={this.handleFormationClick} id="352">3-5-2</button>
-          <button onClick={this.handleFormationClick} id="343">3-4-3</button>
-          <br></br>
 
           <button onClick={this.handleResultsClick} id="Arsenal">Arsenal</button>
           <button onClick={this.handleResultsClick} id="AFC Bournemouth">AFC Bournemouth</button>

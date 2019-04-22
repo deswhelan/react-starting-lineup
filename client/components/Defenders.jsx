@@ -9,22 +9,22 @@ class Defenders extends React.Component {
     super(props);
   }
 
-  componentWillMount() {
-    this.getStartingDefenders()
-  }
+//   componentWillMount() {
+//     this.getStartingDefenders()
+//   }
 
-  getStartingDefenders() {
-    let team = this.props.team
-    let numOfStarters = this.props.numOfStarters
+//   getStartingDefenders() {
+//     let team = this.props.team
+//     let numOfStarters = this.props.numOfStarters
 
-    //get all the Defenders and randomize them
-    let allDefenders = lineupSelector.randomizePlayers(lineupSelector.getPlayersByPosition(team, "DF"))
-    let startingDefenders = lineupSelector.selectStarters(allDefenders, numOfStarters)
+//     //get all the Defenders and randomize them
+//     let allDefenders = lineupSelector.randomizePlayers(lineupSelector.getPlayersByPosition(team, "DF"))
+//     let startingDefenders = lineupSelector.selectStarters(allDefenders, numOfStarters)
 
-    this.setState({
-      defenders: startingDefenders
-    })
-  }
+//     this.setState({
+//       defenders: startingDefenders
+//     })
+//   }
 
   render() {
     if(this.props.defenders) {

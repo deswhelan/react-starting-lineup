@@ -48,9 +48,11 @@ function getStartingEleven (team, newFormationArr, callback) {
     let fwNeeded = parseInt(newFormationArr[2])
 
     let df = selectPlayersByPosition(randomizePlayers(getPlayersByPosition(team, "DF")) , dfNeeded)
+    let mf = selectPlayersByPosition(randomizePlayers(getPlayersByPosition(team, "MF")) , mfNeeded)
+    let fw = selectPlayersByPosition(randomizePlayers(getPlayersByPosition(team, "FW")) , fwNeeded)
 
     console.log(team)
-    callback(df)
+    callback(df, mf, fw)
 }
 
 function getNewFormation (newFormationArr, callback) {

@@ -29,7 +29,9 @@ class App extends React.Component {
       midfieldersNeeded: 3,
       forwardsNeeded: 3,
       results: '',
-      defenders: null
+      defenders: null,
+      midfielders: null,
+      forwards: null
     }
 
     console.log("Initial state: ", this.state)
@@ -59,10 +61,12 @@ class App extends React.Component {
    
   }
 
-  renderFormation(df) {
+  renderFormation(df, mf, fw) {
     console.log(typeof df)
     this.setState({
       defenders: df,
+      midfielders: mf,
+      forwards: fw
     })
   }
 
@@ -123,8 +127,8 @@ class App extends React.Component {
         <div className="container">
           <Goalkeeper team={this.state.team}/>
           <Defenders defenders={this.state.defenders} team={this.state.team}/>
-          <Midfielders  numOfStarters={this.state.midfieldersNeeded} team={this.state.team}/>
-          <Forwards numOfStarters={this.state.forwardsNeeded} team={this.state.team}/>
+          <Midfielders  midfielders={this.state.midfielders} team={this.state.team}/>
+          <Forwards forwards={this.state.forwards} team={this.state.team}/>
 
           <button onClick={this.handleFormationClick} id="541">5-4-1</button>
           <button onClick={this.handleFormationClick} id="532">5-3-2</button>

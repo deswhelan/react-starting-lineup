@@ -7,9 +7,6 @@ class Defenders extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state ={
-      defenders: '',
-    }
   }
 
   componentWillMount() {
@@ -30,11 +27,15 @@ class Defenders extends React.Component {
   }
 
   render() {
-    return (
-        <div className="pitch-area" id="defenders">
-        {this.state.defenders.map((defender, i) => <Player player={defender}  key={i}/>)}
-        </div>
-    )
+    if(this.props.defenders) {
+        return (
+            <div className="pitch-area" id="defenders">
+            {this.props.defenders.map((defender, i) => <Player player={defender}  key={i}/>)}
+            </div>
+        )
+    } else {
+        return <div></div>
+    }
   }
 }
 

@@ -7,7 +7,7 @@ class HeadToHead extends React.Component {
 
     render () {
         let results = this.props.results
-        console.log(results)
+
         if(this.props.results){
         return (
             <div className="head-to-head">
@@ -15,11 +15,11 @@ class HeadToHead extends React.Component {
                 <ul>
                     {results.map((result, i) => {
                         return  <li key={i}>
-                        <div className="results-header">
-                            {result.league_name}({result.match_date}): 
-                        </div>
-                        <br/>
-                        {result.match_hometeam_name} {result.match_hometeam_score} : {result.match_awayteam_score} {result.match_awayteam_name}</li>
+                            <div className="results-header">
+                                {result.league_name} ({result.match_date}): 
+                            </div>
+                            {result.match_hometeam_name} {result.match_hometeam_score} : {result.match_awayteam_score} {result.match_awayteam_name}
+                        </li>
                     })}
                 </ul>
 
@@ -28,11 +28,9 @@ class HeadToHead extends React.Component {
                     <div className="bottom-right-corner"></div>
                 </div>
             </div>
-        )
-        }else {
+        )}else {
             return <div></div>
         }
-
     }
 }   
 

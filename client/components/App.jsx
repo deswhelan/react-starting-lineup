@@ -9,6 +9,10 @@ import { getHeadToHeadResults } from '../api'
 // GET INFO FROM DATABASE USING DB FUNCTIONS FILE
 // import { getHoroscopeDbInfo } from '../../server/db/db'
 
+// Get functions
+import {getNewFormation} from '../lineupSelector'
+import {getStartingEleven} from '../lineupSelector'
+
 import Goalkeeper from './Goalkeeper'
 import Defenders from './Defenders'
 import Midfielders from './Midfielders'
@@ -24,7 +28,8 @@ class App extends React.Component {
       defendersNeeded: 4,
       midfieldersNeeded: 3,
       forwardsNeeded: 3,
-      results: ''
+      results: '',
+      defenders: null
     }
 
     console.log("Initial state: ", this.state)
@@ -32,21 +37,33 @@ class App extends React.Component {
     this.handleFormationClick = this.handleFormationClick.bind(this)  
     this.handleResultsClick = this.handleResultsClick.bind(this)  
     this.renderResults = this.renderResults.bind(this)
+    this.renderFormation = this.renderFormation.bind(this)
     // this.handleSubmit = this.handleSubmit.bind(this)
     // this.updateState = this.updateState.bind(this)
-    // this.renderNewFormation = this.renderNewFormation.bind(this)
+  
   }
 
   handleFormationClick(e) {
 
     let formation = e.target.id.split('')
+    
+    getStartingEleven(this.state.team, formation, this.renderFormation)
 
+    // getNewFormation(formation, this.renderFormation)
+
+    // this.setState({
+    //   defendersNeeded: parseInt(formation[0]),
+    //   midfieldersNeeded: parseInt(formation[1]),
+    //   forwardsNeeded: parseInt(formation[2])
+    // })
+   
+  }
+
+  renderFormation(df) {
+    console.log(typeof df)
     this.setState({
-      defendersNeeded: parseInt(formation[0]),
-      midfieldersNeeded: parseInt(formation[1]),
-      forwardsNeeded: parseInt(formation[2])
+      defenders: df,
     })
-    this.render()
   }
 
   handleResultsClick(e) {
@@ -55,19 +72,10 @@ class App extends React.Component {
   }
 
 
-
   renderResults(results) {
     this.setState({
       results: results
     })
-
-    //export this functionality to H2H component once rendering is occuring correctly
-    let fixtures = this.state.results
-    console.log(fixtures)
-    fixtures.map(fixture => {
-      console.log(fixture.league_name + ":", fixture.match_hometeam_name, fixture.match_hometeam_score, " - ", fixture.match_awayteam_score, fixture.match_awayteam_name, "(" + fixture.match_date + ")")
-    })
-
   }
 
   // renderNewFormation(formation) {
@@ -96,6 +104,13 @@ class App extends React.Component {
   // }
 
   render() {
+
+    console.log("Rendering: ", '\n',
+      this.state.defendersNeeded, '\n',
+      this.state.midfieldersNeeded, '\n',
+      this.state.forwardsNeeded, '\n',
+    )
+
     return (
       <div>
         <a href="/">
@@ -107,9 +122,10 @@ class App extends React.Component {
         </a>
         <div className="container">
           <Goalkeeper team={this.state.team}/>
-          <Defenders team={this.state.team} numOfStarters={this.state.defendersNeeded}/>
-          <Midfielders team={this.state.team} numOfStarters={this.state.midfieldersNeeded}/>
-          <Forwards team={this.state.team} numOfStarters={this.state.forwardsNeeded}/>
+          <Defenders defenders={this.state.defenders} team={this.state.team}/>
+          <Midfielders  numOfStarters={this.state.midfieldersNeeded} team={this.state.team}/>
+          <Forwards numOfStarters={this.state.forwardsNeeded} team={this.state.team}/>
+
           <button onClick={this.handleFormationClick} id="541">5-4-1</button>
           <button onClick={this.handleFormationClick} id="532">5-3-2</button>
           <button onClick={this.handleFormationClick} id="442">4-4-2</button>
@@ -118,6 +134,7 @@ class App extends React.Component {
           <button onClick={this.handleFormationClick} id="352">3-5-2</button>
           <button onClick={this.handleFormationClick} id="343">3-4-3</button>
           <br></br>
+
           <button onClick={this.handleResultsClick} id="Arsenal">Arsenal</button>
           <button onClick={this.handleResultsClick} id="AFC Bournemouth">AFC Bournemouth</button>
           <button onClick={this.handleResultsClick} id="Brighton &amp; Hove Albion">Brighton and Hove Albion</button>
@@ -136,6 +153,7 @@ class App extends React.Component {
           <button onClick={this.handleResultsClick} id="Tottenham Hotspur">Tottenham Hotspur</button>
           <button onClick={this.handleResultsClick} id="West Ham United">West Ham United</button>
           <button onClick={this.handleResultsClick} id="Wolverhampton Wanderers">Wolverhampton Wanderers</button>
+
           <HeadToHead results={this.state.results}/>
         </div>
       </div>

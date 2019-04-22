@@ -1,6 +1,6 @@
 import React from 'react'
 
-import lineupSelector from '../lineupSelector'
+// import lineupSelector from '../lineupSelector'
 import Player from './Player'
 
 class Midfielders extends React.Component { 
@@ -26,16 +26,16 @@ class Midfielders extends React.Component {
 //     })
 //   }
 
-  render() {
-    if(this.props.midfielders){
-        return (
-            <div className="pitch-area" id="midfielders">
-                {this.props.midfielders.map((midfielder, i) => <Player player={midfielder}  key={i}/>)}
-            </div>
-    )} else {
-        return <div></div>
+    render() {
+        if(this.props.midfielders){
+            return (
+                <div className="pitch-area" id="midfielders">
+                    {this.props.midfielders.map((midfielder, i) => <Player player={midfielder}  key={i}/>)}
+                </div>
+        )} else {
+            return <div></div>
+        }
     }
-  }
 }
 
 export default Midfielders

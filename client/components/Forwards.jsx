@@ -1,13 +1,13 @@
 import React from 'react'
 
-import lineupSelector from '../lineupSelector'
+// import lineupSelector from '../lineupSelector'
 import Player from './Player'
 
 class Forwards extends React.Component { 
 
-  constructor(props) {
-    super(props)
-  }
+    constructor(props) {
+        super(props)
+    }
 
 //   componentWillMount() {
 //     this.getStartingForwards()
@@ -26,16 +26,16 @@ class Forwards extends React.Component {
 //     })
 //   }
 
-  render() {
-    if(this.props.forwards){
-        return (
-            <div className="pitch-area" id="Forwards">
-                {this.props.forwards.map((forward, i) => <Player player={forward}  key={i}/>)}
-            </div>
-    )} else {
-        return <div></div>
+    render() {
+        if(this.props.forwards){
+            return (
+                <div className="pitch-area" id="Forwards">
+                    {this.props.forwards.map((forward, i) => <Player player={forward}  key={i}/>)}
+                </div>
+        )} else {
+            return <div></div>
+        }
     }
-  }
 }
 
 export default Forwards

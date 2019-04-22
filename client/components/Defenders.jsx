@@ -1,13 +1,13 @@
 import React from 'react'
 
-import lineupSelector from '../lineupSelector'
+// import lineupSelector from '../lineupSelector'
 import Player from './Player'
 
 class Defenders extends React.Component { 
 
-  constructor(props) {
-    super(props);
-  }
+    constructor(props) {
+        super(props)
+    }
 
 //   componentWillMount() {
 //     this.getStartingDefenders()
@@ -26,17 +26,17 @@ class Defenders extends React.Component {
 //     })
 //   }
 
-  render() {
-    if(this.props.defenders) {
-        return (
-            <div className="pitch-area" id="defenders">
-            {this.props.defenders.map((defender, i) => <Player player={defender}  key={i}/>)}
-            </div>
-        )
-    } else {
-        return <div></div>
+    render() {
+        if(this.props.defenders) {
+            return (
+                <div className="pitch-area" id="defenders">
+                {this.props.defenders.map((defender, i) => <Player player={defender}  key={i}/>)}
+                </div>
+            )
+        } else {
+            return <div></div>
+        }
     }
-  }
 }
 
 export default Defenders

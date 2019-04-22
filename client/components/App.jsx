@@ -6,13 +6,10 @@ import team from '../../server/public/teamData.json'
 // GET INFO FROM API
 import { getHeadToHeadResults } from '../api'
 
-// GET INFO FROM DATABASE USING DB FUNCTIONS FILE
-// import { getHoroscopeDbInfo } from '../../server/db/db'
-
 // Get functions
-import {getNewFormation} from '../lineupSelector'
 import {getStartingEleven} from '../lineupSelector'
 
+// Get components
 import Goalkeeper from './Goalkeeper'
 import Defenders from './Defenders'
 import Midfielders from './Midfielders'
@@ -20,49 +17,31 @@ import Forwards from './Forwards'
 import HeadToHead from './HeadToHead.jsx';
 
 class App extends React.Component {
+
   constructor(props) {
+
     super(props)
 
     this.state = {
       team: team["manchesterunited"],
-      defendersNeeded: 4,
-      midfieldersNeeded: 3,
-      forwardsNeeded: 3,
-      results: '',
+      results: null,
       defenders: null,
       midfielders: null,
       forwards: null
     }
 
-    console.log("Initial state: ", this.state)
-
     this.handleFormationClick = this.handleFormationClick.bind(this)  
     this.handleResultsClick = this.handleResultsClick.bind(this)  
     this.renderResults = this.renderResults.bind(this)
     this.renderFormation = this.renderFormation.bind(this)
-    // this.handleSubmit = this.handleSubmit.bind(this)
-    // this.updateState = this.updateState.bind(this)
-  
   }
 
   handleFormationClick(e) {
-
     let formation = e.target.id.split('')
-    
     getStartingEleven(this.state.team, formation, this.renderFormation)
-
-    // getNewFormation(formation, this.renderFormation)
-
-    // this.setState({
-    //   defendersNeeded: parseInt(formation[0]),
-    //   midfieldersNeeded: parseInt(formation[1]),
-    //   forwardsNeeded: parseInt(formation[2])
-    // })
-   
   }
 
   renderFormation(df, mf, fw) {
-    console.log(typeof df)
     this.setState({
       defenders: df,
       midfielders: mf,
@@ -82,39 +61,7 @@ class App extends React.Component {
     })
   }
 
-  // renderNewFormation(formation) {
-  //   console.log("Rendering new formation: ", formation)
-  //   this.setState({
-  //     defendersNeeded: parseInt(formation[0]),
-  //     midfieldersNeeded: parseInt(formation[1]),
-  //     forwardsNeeded: parseInt(formation[2])
-  //   })
-  //   console.log(this.state)
-  // }
-
-  // updateState() {
-  //   console.log("changing state!")
-
-  //   this.setState({
-  //     defendersNeeded: 6,
-  //     midfieldersNeeded: 6,
-  //     forwardsNeeded: 6,
-  //   })  
-  // }
-
-  // handleSubmit() {
-  //   console.log("handling submit")
-  //   this.updateState()
-  // }
-
   render() {
-
-    console.log("Rendering: ", '\n',
-      this.state.defendersNeeded, '\n',
-      this.state.midfieldersNeeded, '\n',
-      this.state.forwardsNeeded, '\n',
-    )
-
     return (
       <div>
         <a href="/">

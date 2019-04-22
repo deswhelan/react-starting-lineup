@@ -8,29 +8,25 @@ class HeadToHead extends React.Component {
     render () {
         let results = this.props.results
 
-        if(this.props.results){
-        return (
-            <div className="head-to-head">
-                <h3>Head to Head vs. OPPONENT</h3>
-                <ul>
-                    {results.map((result, i) => {
-                        return  <li key={i}>
+        if(results){
+            return (
+                <div className="head-to-head">
+                    <h3>Head to Head vs. OPPONENT</h3>
+                    <ul>
+                        {results.map((result, i) => {return  <li key={i}>
                             <div className="results-header">
                                 {result.league_name} ({result.match_date}): 
                             </div>
                             {result.match_hometeam_name} {result.match_hometeam_score} : {result.match_awayteam_score} {result.match_awayteam_name}
-                        </li>
-                    })}
-                </ul>
-
-                <div className="corners">
-                    <div className="bottom-left-corner"></div>
-                    <div className="bottom-right-corner"></div>
+                        </li>})}
+                    </ul>
+                    <div className="corners">
+                        <div className="bottom-left-corner"></div>
+                        <div className="bottom-right-corner"></div>
+                    </div>
                 </div>
-            </div>
-        )}else {
-            return <div></div>
-        }
+            )
+        } else return <div></div>
     }
 }   
 

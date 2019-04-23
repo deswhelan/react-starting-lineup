@@ -324,6 +324,10 @@ button {
     width:calc(50% - 5px); /*half of margin-right from .left-div*/
 }
 
+#h2h-results-info {
+    font-size: 1.0em
+}
+
 a:link
 {
    color:white;

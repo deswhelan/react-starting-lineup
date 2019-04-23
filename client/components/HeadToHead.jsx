@@ -10,14 +10,15 @@ class HeadToHead extends React.Component {
 
         if(results){
             return (
-                <div className="head-to-head">
-                    <h3>Head to Head vs. OPPONENT</h3>
+                <div className="recent-results-info" id="h2h-results-info">
                     <ul>
                         {results.map((result, i) => {return  <li key={i}>
                             <div className="results-header">
                                 {result.league_name} ({result.match_date}): 
                             </div>
-                            {result.match_hometeam_name} {result.match_hometeam_score} : {result.match_awayteam_score} {result.match_awayteam_name}
+                            {result.match_hometeam_name} {result.match_hometeam_score}
+                            <br></br> 
+                            {result.match_awayteam_name} {result.match_awayteam_score} 
                         </li>})}
                     </ul>
                 </div>

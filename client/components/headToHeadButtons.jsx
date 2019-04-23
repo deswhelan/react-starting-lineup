@@ -17,7 +17,7 @@ class HeadToHeadButtons extends React.Component {
                             <option value = "AFC Bournemouth">AFC Bournemouth</option>
                             <option value = "Brighton &amp; Hove Albion">Brighton &amp; Hove Albion</option>
                             <option value = "Burnley">Burnley</option>
-                            <option value = "Cardiff City">CardiffCity</option>
+                            <option value = "Cardiff City">Cardiff City</option>
                             <option value = "Chelsea">Chelsea</option>
                             <option value = "Crystal Palace">Crystal Palace</option>
                             <option value = "Everton">Everton</option>

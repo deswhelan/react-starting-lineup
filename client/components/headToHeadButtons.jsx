@@ -9,25 +9,31 @@ class HeadToHeadButtons extends React.Component {
         if(this.props.display){
             return (
                 <div className="head-to-head-buttons">
-                <h4>Choose opponent:</h4>
-                <button onClick={this.handleHeadToHeadClick} className="head-to-head-button" id="Arsenal">Arsenal</button>
-                <button onClick={this.handleHeadToHeadClick} className="head-to-head-button" id="AFC Bournemouth">AFC Bournemouth</button>
-                <button onClick={this.handleHeadToHeadClick} className="head-to-head-button" id="Brighton &amp; Hove Albion">Brighton and Hove Albion</button>
-                <button onClick={this.handleHeadToHeadClick} className="head-to-head-button" id="Burnley">Burnley</button>
-                <button onClick={this.handleHeadToHeadClick} className="head-to-head-button" id="Cardiff City">Cardiff City</button>
-                <button onClick={this.handleHeadToHeadClick} className="head-to-head-button" id="Chelsea">Chelsea</button>
-                <button onClick={this.handleHeadToHeadClick} className="head-to-head-button" id="Crystal Palace">Crystal Palace</button>
-                <button onClick={this.handleHeadToHeadClick} className="head-to-head-button" id="Everton">Everton</button>
-                <button onClick={this.handleHeadToHeadClick} className="head-to-head-button" id="Fulham">Fulham</button>
-                <button onClick={this.handleHeadToHeadClick} className="head-to-head-button" id="Huddersfield Town">Huddersfield Town</button>
-                <button onClick={this.handleHeadToHeadClick} className="head-to-head-button" id="Leicester City">Leicester City</button>
-                <button onClick={this.handleHeadToHeadClick} className="head-to-head-button" id="Liverpool">Liverpool</button>
-                <button onClick={this.handleHeadToHeadClick} className="head-to-head-button" id="Manchester City">Manchester City</button>
-                <button onClick={this.handleHeadToHeadClick} className="head-to-head-button" id="Newcastle United">Newcastle United</button>
-                <button onClick={this.handleHeadToHeadClick} className="head-to-head-button" id="Southampton">Southampton</button>
-                <button onClick={this.handleHeadToHeadClick} className="head-to-head-button" id="Tottenham Hotspur">Tottenham Hotspur</button>
-                <button onClick={this.handleHeadToHeadClick} className="head-to-head-button" id="West Ham United">West Ham United</button>
-                <button onClick={this.handleHeadToHeadClick} className="head-to-head-button" id="Wolverhampton Wanderers">Wolverhampton Wanderers</button>
+                    <form>
+                        <label>Choose opponent </label>
+                        <select id = "myList" onChange={(e) => this.props.handleHeadToHeadClick(e)}>
+                            <option value = "">none</option>
+                            <option value = "Arsenal">Arsenal</option>
+                            <option value = "AFC Bournemouth">AFC Bournemouth</option>
+                            <option value = "Brighton &amp; Hove Albion">Brighton &amp; Hove Albion</option>
+                            <option value = "Burnley">Burnley</option>
+                            <option value = "Cardiff City">CardiffCity</option>
+                            <option value = "Chelsea">Chelsea</option>
+                            <option value = "Crystal Palace">Crystal Palace</option>
+                            <option value = "Everton">Everton</option>
+                            <option value = "Fulham">Fulham</option>
+                            <option value = "Huddersfield Town">Huddersfield Town</option>
+                            <option value = "Leicester City">Leicester City</option>
+                            <option value = "Liverpool">Liverpool</option>
+                            <option value = "Manchester City">Manchester City</option>
+                            <option value = "Newcastle United">Newcastle United</option>
+                            <option value = "Southampton">Southampton</option>
+                            <option value = "Tottenham Hotspur">Tottenham Hotspur</option>
+                            <option value = "Watford">Watford</option>
+                            <option value = "West Ham United">West Ham United</option>
+                            <option value = "Wolverhampton Wanderers">Wolverhampton Wanderers</option>
+                        </select>
+                    </form>
                 </div>
         )} else return <div></div>
     }

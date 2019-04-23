@@ -73,7 +73,7 @@ class App extends React.Component {
   }
 
   handleHeadToHeadClick (e) {
-    let opponent = e.target.id
+    let opponent = e.target.value
     getHeadToHeadResults(opponent, this.renderHeadToHead)
   }
 
@@ -127,7 +127,7 @@ class App extends React.Component {
 
             <div className="head-to-head">
               <button onClick={this.renderHeadToHeadButtons}>Head-to-Head Results</button>
-              <HeadToHeadButtons display={this.state.displayHeadToHeadButtons}/>
+              <HeadToHeadButtons display={this.state.displayHeadToHeadButtons} handleHeadToHeadClick={this.handleHeadToHeadClick}/>
               <HeadToHead h2hResults={this.state.headToHead}/>
             </div>
           </div>

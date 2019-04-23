@@ -10,14 +10,16 @@ class Results extends React.Component {
 
         if(results){
             return (
-                <div className="recent-results">
-                    <h3>Recent Results</h3>
+                <div className="recent-results-info">
                     <ul>
                         {results.map((result, i) => {return  <li key={i}>
                             <div className="results-header">
                                 {result.league_name} ({result.match_date}): 
                             </div>
-                            {result.match_hometeam_name} {result.match_hometeam_score} : {result.match_awayteam_score} {result.match_awayteam_name}
+                            {result.match_hometeam_name} {result.match_hometeam_score} 
+                            <br></br>
+                            {result.match_awayteam_name} {result.match_awayteam_score} 
+                            <br></br>
                         </li>})}
                     </ul>
                 </div>

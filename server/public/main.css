@@ -4,7 +4,8 @@ body {
     font-family: 'Bungee Inline', cursive;
     border-color: white;
     border-style: solid;
-    border-width: 0.6em;
+    border-width: 0.6em;    
+    margin: 3.5em
 }
 
 .corners {
@@ -95,7 +96,8 @@ ul {
 }
 
 .results-header {
-    text-decoration: underline
+    text-decoration: underline;
+    font-size: 0.66em
 }
 
 #managers {
@@ -263,12 +265,16 @@ color: black;
 .formation-select button {
     font-size: 0.8em;
     margin: 0.25em;
-    font-family: 'Bungee Inline', cursive;
-    border-radius: 15%;
     width: 5em;
     height: 2.5em;
-    transform: skew(-14deg);
-    background-color: white
+}
+
+button {
+    font-family: 'Bungee Inline', cursive;
+    border-radius: 7.5%;
+    transform: skew(-12.5deg);
+    background-color: white;
+    opacity: 0.85;
 }
 
 .formation-select h4 {
@@ -285,6 +291,18 @@ color: black;
     margin-right: 10px;
     width:calc(50% - 5px); /*half of margin-right*/
     display:block;
+}
+
+.recent-results-info {
+    font-size: 0.5em;
+    margin: 1em;
+    background-color: white;
+    color: black;
+    opacity: 0.85
+}
+
+.recent-results-info ul li {
+    margin: 1.5em
 }
 
 .head-to-head {

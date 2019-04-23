@@ -95,6 +95,19 @@ ul {
     font-size: 0.5em
 }
 
+.head-to-head-buttons {
+    /* display: block;
+    align-items: center;
+    justify-content: center */
+}
+
+.head-to-head-button {
+    display: block;
+    align-items: center;
+    justify-content: center;
+    align-content: center
+}
+
 .results-header {
     text-decoration: underline;
     font-size: 0.66em

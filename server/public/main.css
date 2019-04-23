@@ -275,6 +275,24 @@ color: black;
     margin: 0.25em;
 }
 
+.results {
+    display: inline-block;
+    width: 100%
+}
+
+.recent-results {
+    float: left;
+    margin-right: 10px;
+    width:calc(50% - 5px); /*half of margin-right*/
+    display:block;
+}
+
+.head-to-head {
+    float: left;
+    display:block;
+    width:calc(50% - 5px); /*half of margin-right from .left-div*/
+}
+
 a:link
 {
    color:white;

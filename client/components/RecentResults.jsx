@@ -20,10 +20,6 @@ class Results extends React.Component {
                             {result.match_hometeam_name} {result.match_hometeam_score} : {result.match_awayteam_score} {result.match_awayteam_name}
                         </li>})}
                     </ul>
-                    <div className="corners">
-                        <div className="bottom-left-corner"></div>
-                        <div className="bottom-right-corner"></div>
-                    </div>
                 </div>
             )
         } else return <div></div>

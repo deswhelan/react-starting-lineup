@@ -92,7 +92,7 @@ class App extends React.Component {
         <div className="container">
 
           <div className="formation-select">
-          <p>Select formation</p>
+          <h4>Select formation:</h4>
             <button onClick={this.handleFormationClick} id="541">5-4-1</button>
             <button onClick={this.handleFormationClick} id="532">5-3-2</button>
             <button onClick={this.handleFormationClick} id="451">4-5-1</button>

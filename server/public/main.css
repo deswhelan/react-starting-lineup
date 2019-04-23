@@ -239,10 +239,40 @@ color: black;
 }
 
 .form {
-display: flex;
-flex-direction: column;
-align-items: center;
-font-family: 'Roboto', sans-serif;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+.formation-select {
+    /* display: flex;
+    align-items: center;
+    margin: auto;
+    text-align: center; */
+
+    display: inline-block;
+    flex-direction: column;
+    align-items: center;
+
+
+    font-size: 0.6em;
+    font-style: italic;
+}
+
+.formation-select button {
+    font-size: 0.8em;
+    margin: 0.25em;
+    font-family: 'Bungee Inline', cursive;
+    border-radius: 15%;
+    width: 5em;
+    height: 2.5em;
+    transform: skew(-14deg);
+    background-color: white
+}
+
+.formation-select h4 {
+    margin: 0.25em;
 }
 
 a:link

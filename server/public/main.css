@@ -101,11 +101,8 @@ ul {
     justify-content: center */
 }
 
-.head-to-head-button {
-    display: block;
-    align-items: center;
-    justify-content: center;
-    align-content: center
+.head-to-head-results-button {
+    margin: 3em
 }
 
 .results-header {
@@ -301,9 +298,17 @@ button {
 
 .recent-results {
     float: left;
-    margin-right: 10px;
+    /* margin-right: 10px; */
     width:calc(50% - 5px); /*half of margin-right*/
     display:block;
+    height: auto
+}
+
+.head-to-head {
+    float: left;
+    display:block;
+    width:calc(50% - 5px); /*half of margin-right from .left-div*/
+    height: auto
 }
 
 .recent-results-info {
@@ -316,12 +321,6 @@ button {
 
 .recent-results-info ul li {
     margin: 1.5em
-}
-
-.head-to-head {
-    float: left;
-    display:block;
-    width:calc(50% - 5px); /*half of margin-right from .left-div*/
 }
 
 #h2h-results-info {

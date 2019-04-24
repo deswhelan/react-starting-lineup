@@ -126,7 +126,7 @@ class App extends React.Component {
             </div>
 
             <div className="head-to-head">
-              <button onClick={this.renderHeadToHeadButtons}>Head-to-Head Results</button>
+              <button onClick={this.renderHeadToHeadButtons} className="head-to-head-results-button">Head-to-Head Results</button>
               <HeadToHeadButtons display={this.state.displayHeadToHeadButtons} handleHeadToHeadClick={this.handleHeadToHeadClick}/>
               <HeadToHead h2hResults={this.state.headToHead}/>
             </div>
